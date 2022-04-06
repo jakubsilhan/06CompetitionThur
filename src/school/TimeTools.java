@@ -33,6 +33,6 @@ public final class TimeTools {
     
     public static int timeToSeconds(String time){
         String[] arr = time.split(":", 3);
-        return Integer.parseInt(arr[0])*3600 + Integer.parseInt(arr[1])*60+60;
+        return (Integer.parseInt(arr[0])*3600) + (Integer.parseInt(arr[1])*60) + (Integer.parseInt(arr[2]));
     }
 }

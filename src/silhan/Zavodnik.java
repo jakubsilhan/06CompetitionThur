@@ -23,6 +23,11 @@ public class Zavodnik {
         this.finishTime=0;
         this.totalTime=0;
     }
+    
+    //factory method
+    public static Zavodnik getInstance(String name, String surname, int year, String gender){
+        return new Zavodnik(name,surname,year,gender);
+    }
     //settery
     public void setStartTime(long startTime) {
         this.startTime = startTime;
@@ -84,6 +89,13 @@ public class Zavodnik {
     public static int getCounter() {
         return counter;
     }
+    //toString
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " " + year + " " + gender + " " + idNum + " " + startTime + " " + finishTime + " " + totalTime;
+    }
+    
     
     
     
