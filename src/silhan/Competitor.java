@@ -7,7 +7,7 @@ public class Competitor implements Comparable<Competitor>{
     private String name;
     private String surname;
     private int year; //rocnik
-    private String gender;
+    private char gender;
     private int regNum;
     private int startTime; //pocet sekund
     private int finishTime; //pocet sekund
@@ -16,13 +16,13 @@ public class Competitor implements Comparable<Competitor>{
     //private String competitorCondition; //pouzit enum, neni potreba mit v promenne jen vracet metodou
     private String club;
     
-    public Competitor(String name, String surname, int year, String gender){
+    public Competitor(String name, String surname, int year, char gender, int regNum){
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.gender = gender;
-        this.counter+=1;
-        this.regNum=counter;
+        //this.counter+=1;
+        this.regNum=regNum;
         this.startTime=0;
         this.finishTime=0;
         this.totalTime=0;
@@ -42,8 +42,8 @@ public class Competitor implements Comparable<Competitor>{
     }
     
     //factory method
-    public static Competitor getInstance(String name, String surname, int year, String gender){
-        return new Competitor(name,surname,year,gender);
+    public static Competitor getInstance(String name, String surname, int year, char gender, int regNum){
+        return new Competitor(name,surname,year,gender,regNum);
     }
     //settery
     public void setStartTime(int startTime) { //9*3600 + 12*60
@@ -88,7 +88,7 @@ public class Competitor implements Comparable<Competitor>{
         return year;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 

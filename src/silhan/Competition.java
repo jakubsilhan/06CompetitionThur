@@ -9,6 +9,7 @@ public class Competition {
     //data
     private String name;
     private ArrayList<Competitor> competitors;
+    private int counter=1;
     
     //konstruktor
     public Competition(String name){
@@ -19,6 +20,10 @@ public class Competition {
     //gettery
     public String getName() {
         return name;
+    }
+
+    public int getCounter() {
+        return counter;
     }
     
     //defensive deep copy
@@ -35,8 +40,9 @@ public class Competition {
     }
     
     //methods    
-    public void addCompetitor(String name, String surname, int year, String gender){
-        competitors.add(Competitor.getInstance(name, surname, year, gender));
+    public void addCompetitor(String name, String surname, int year, char gender){
+        competitors.add(Competitor.getInstance(name, surname, year, gender, this.getCounter()));
+        counter++;
     }
     
     public void setStartTimeAll(int hours, int min, int sec){
@@ -96,7 +102,7 @@ public class Competition {
         return fastest;
     }
     //sort?
-    private void sortByTotalTime(){
+    public void sortByTotalTime(){
         Collections.sort(competitors);
     }
     
@@ -123,13 +129,13 @@ public class Competition {
     }
 */
     //testovani
-    
+    /*
     public static void main(String[] args) {
         Competition jiz50 = new Competition("Jiz50");
         System.out.println(jiz50);
-        jiz50.addCompetitor("Jakub", "Silhan", 2002, "M");
-        jiz50.addCompetitor("Ladislav", "Silhan", 1973, "M");
-        jiz50.addCompetitor("Ivona", "Silhanova", 1978, "F");
+        jiz50.addCompetitor("Jakub", "Silhan", 2002, 'M');
+        jiz50.addCompetitor("Ladislav", "Silhan", 1973, 'M');
+        jiz50.addCompetitor("Ivona", "Silhanova", 1978, 'F');
         System.out.println(jiz50);
         jiz50.setStartTimeAll(9, 0, 0, 2);
         System.out.println(jiz50);
@@ -143,4 +149,5 @@ public class Competition {
         jiz50.sortBySurname();
         System.out.println(jiz50);
     }
+*/
 }
